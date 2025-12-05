@@ -143,3 +143,42 @@
     <h3 id="Conclusion">Conclusion</h3>
     <p>
         Performance braking technology comes from physics based developments crafted over years of significantly engineered material advancements for integration with relative electronics comfort systems weighed against further thermal management opportunity explored over years without cautionary concerns through generations - a relative value assessed across markets intersectional worlds cultivated viable goals reached comfortably approached almost effortlessly
+<hr>
+<p id="wordcount" style="text-align: center; font-weight: bold;"></p>
+<p id="timestamp" style="text-align: center; font-weight: bold; color: red;"></p>
+    <hr>
+    <h3>Submission Information</h3>
+    <p id="wordcount" style="text-align: center; font-weight: bold;"></p>
+    <p id="timestamp" style="text-align: center; font-weight: bold; color: red;"></p>
+    
+    <!-- Word Count Script -->
+    <script>
+        function countWords() {
+            var body = document.getElementsByTagName('body')[0];
+            var text = body.innerText;
+            var words = text.split(/\s+/).filter(function(word) {
+                return word.length > 0;
+            });
+            return words.length;
+        }
+        var wordCount = countWords();
+        document.getElementById('wordcount').innerHTML = 'Word Count: ' + wordCount;
+    </script>
+    
+    <!-- Last Modified Time Stamp Script -->
+    <script>
+        var lastModified = new Date(document.lastModified);
+        var options = { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric', 
+            hour: '2-digit', 
+            minute: '2-digit',
+            second: '2-digit'
+        };
+        var formattedDate = lastModified.toLocaleDateString('en-GB', options);
+        document.getElementById('timestamp').innerHTML = 'Last Modified: ' + formattedDate;
+    </script>
+
+</body>
+</html>
