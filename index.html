@@ -145,7 +145,7 @@
     <p>
         Performance braking technology comes from physics based developments crafted over years of significantly engineered material advancements for integration with relative electronics comfort systems weighed against further thermal management opportunity explored over years without cautionary concerns through generations - a relative value assessed across markets intersectional worlds cultivated viable goals reached comfortably approached almost effortlessly
 <hr>
-
+</div>
 <h3>Conference Presentation</h3>
 
 <video src="freecompress-Presentation.pptx - Comet 2025-12-05 14-33-11 (1).mp4" width="800" height="450" controls>
@@ -207,6 +207,12 @@ window.addEventListener("load", getLastUpdatedTime);
     <!-- Placeholder for total word count -->
 <p id="totalWordCount"></p>
 <hr>
+<!-- //////////////////////////////////////////////////////////////////////////////// -->
+  <!-- ////////////////////////////// Word count function ////////////////////////////// -->
+  <!-- //////////////////////////////////////////////////////////////////////////////// -->
+<!-- Placeholder for total word count -->
+<p id="totalWordCount"></p>
+<hr>
 <script>
   // Function to calculate and display word count for a specified section
   function displayWordCount(sectionId, outputId) {
@@ -227,10 +233,10 @@ window.addEventListener("load", getLastUpdatedTime);
     // Calculate the sum of all selected sections
     const totalWordCount = IntroductionCount + AnalysisCount;
     // Display the total word count
-    document.getElementById("totalWordCount").innerText = Total word count: ${totalWordCount};
+    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
   }
   // Run the function for specific sections and display total count when the page loads
-  window.addEventListener("load", displayTotalWordCount);
+  window.onload = displayTotalWordCount;
 </script>
 
 </body>
