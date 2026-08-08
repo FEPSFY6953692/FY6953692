@@ -225,10 +225,10 @@
     // Calculate the sum of all selected sections
     const totalWordCount = IntroductionCount + AnalysisCount;
     // Display the total word count
-    document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+    document.getElementById("totalWordCount").innerText = Total word count: ${totalWordCount};
   }
   // Run the function for specific sections and display total count when the page loads
-  window.onload = displayTotalWordCount;
+  window.addEventListener("load", displayTotalWordCount);
 </script>
 
 
