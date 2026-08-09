@@ -47,7 +47,6 @@
 
   img{max-width:100%; display:block;}
 
-  /* ---------- Banner / header ---------- */
   .banner-wrap{ width:100%; overflow:hidden; background:#000; line-height:0; }
   .banner-wrap img{ width:100%; height:auto; opacity:.55; display:block; }
 
@@ -91,11 +90,9 @@
   }
   .stat .label{ font-size:.74rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
 
-  /* thermal rule = signature device, echoes the paper's own thermal-threshold theme */
   .thermal-rule{ height:3px; border:0; background:var(--thermal-grad); margin:0; border-radius:2px; }
   .thermal-rule.section-divider{ margin:3rem 0; }
 
-  /* ---------- Layout ---------- */
   .layout{
     max-width:1180px; margin:0 auto; padding:2.4rem 1.5rem 4rem;
     display:grid; grid-template-columns:230px minmax(0,1fr); gap:2.6rem;
@@ -135,7 +132,6 @@
     font-size:.82rem; color:var(--muted); margin-top:.6rem; font-family:var(--mono);
   }
 
-  /* ---------- Table ---------- */
   .table-wrap{ overflow-x:auto; margin:1.4rem 0; border:1px solid var(--line); border-radius:10px; }
   table.compare{ width:100%; border-collapse:collapse; min-width:640px; font-size:.92rem; }
   table.compare caption{ text-align:left; padding:.9rem 1rem .3rem; font-family:var(--mono); color:var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; }
@@ -144,7 +140,6 @@
   table.compare tbody th{ font-family:var(--display); font-weight:600; color:var(--text); white-space:nowrap; background:var(--panel-2); }
   table.compare tbody tr:nth-child(even) td, table.compare tbody tr:nth-child(even) th{ background:rgba(255,255,255,.02); }
 
-  /* ---------- References ---------- */
   section.references{ padding-top:.5rem; }
   ol.refs{ list-style:none; margin:0; padding:0; counter-reset:refnum; }
   ol.refs li{
@@ -158,7 +153,6 @@
   }
   ol.refs a{ word-break:break-all; }
 
-  /* ---------- Video / submission ---------- */
   .video-wrap video{ width:100%; border-radius:10px; border:1px solid var(--line); background:#000; }
 
   .meta-panel{
@@ -246,7 +240,7 @@
 
       <section id="Abstract" class="section abstract">
         <p class="kicker">00 — Abstract</p>
-        <p>From Formula, GT to rallying, high-performance braking systems in motorsport rely on the progress of physics, materials, electronics, thermal management and more. The paper covers the operation of these technologies for various performance, safety and regulatory constraints, and how developments in motorsport are applied to high-performance road cars and contemporary supercars.</p>
+        <p>High-performance braking in motorsport, from Formula 1 to GT and rallying, depends on progress in physics, materials, electronics and thermal management. This paper covers how these technologies operate under different performance, safety and regulatory constraints, and how motorsport braking developments transfer to high-performance road cars and supercars.</p>
       </section>
 
       <hr class="thermal-rule section-divider">
@@ -254,7 +248,7 @@
       <section id="Introduction" class="section">
         <p class="kicker">01 — Introduction</p>
         <h2 class="h">Introduction</h2>
-        <p>From Formula, GT and rallying, technology has evolved and improved braking materials, physics and engineering. F1 cars, such as those run by the Mercedes-AMG PETRONAS F1 Team, use advanced materials and aerothermal and electronic technologies to decelerate from 200 to 60 miles per hour in about three seconds (Mercedes-AMG PETRONAS F1 Team, 2019). Thermal degradation and tolerance issues become significant at temperatures above 1,000°C, and specialised research is needed, such as that carried out by Sabe Fluid Dynamics (n.d.). While the principles of braking are the same, regulations for electronics like ABS make for differences in complexity and performance across categories. The paper therefore focuses on high-performance braking technology from a physics, materials, electronics, system-evolution and thermal-management perspective, and looks at its effect on high-performance road cars.</p>
+        <p>Braking materials, physics and engineering have evolved across Formula 1, GT and rallying. F1 cars, such as those run by Mercedes-AMG PETRONAS, use advanced materials, aerothermal design and electronics to decelerate from 200 to 60 mph in about three seconds (Mercedes-AMG PETRONAS F1 Team, 2019). Thermal degradation becomes significant above 1,000°C, requiring specialised research such as that from Sabe Fluid Dynamics (n.d.). While the underlying physics is shared, electronics regulations such as those governing ABS create real differences in complexity across categories. This paper examines braking through physics, materials, electronics, system evolution and thermal management, and its transfer to road cars.</p>
       </section>
 
       <hr class="thermal-rule section-divider">
@@ -262,7 +256,7 @@
       <section id="Physics" class="section">
         <p class="kicker">02 — Physics of Braking</p>
         <h2 class="h">Physics of Braking</h2>
-        <p>Braking involves kinetic energy being transformed into heat by friction, which can be very stressful on the system in terms of mechanical and thermal loading. F1 calipers and rotors have to release a tremendous amount of heat as they slow the car from 200 to 60 mph (Mercedes-AMG PETRONAS F1 Team, 2019). Tyre grip is the limiting factor when braking, so aerodynamic or mechanical downforce increases the load on the tyres, which improves grip. Formula cars can produce more than 1,000 lb of downforce, and heavy braking shifts weight toward the front of the car. Resisting thermal expansion, fracturing and frictional loads is necessary for materials to perform consistently at temperatures that can reach 400°C, and in places exceed 1,200°C (Sabe Fluid Dynamics, n.d.). The suitability of a brake material therefore depends on its thermal resistance, the stability of its friction coefficient, and how it interacts with the mating surface.</p>
+        <p>Braking converts kinetic energy into heat through friction, placing heavy mechanical and thermal loads on the system. F1 calipers and rotors release enormous heat as the car slows from 200 to 60 mph (Mercedes-AMG PETRONAS F1 Team, 2019). Tyre grip is the limiting factor, so aerodynamic downforce — F1 cars can exceed 1,000 lb — improves grip, while heavy braking shifts weight forward. Materials must resist thermal expansion, fracturing and frictional loads at 400°C and, in places, over 1,200°C (Sabe Fluid Dynamics, n.d.). Suitability depends on thermal resistance, a stable friction coefficient, and how the disc and pad interact.</p>
 
         <figure class="diagram">
           <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="physicsTitle physicsDesc">
@@ -275,15 +269,12 @@
               </linearGradient>
             </defs>
             <rect x="0" y="0" width="700" height="230" fill="none"/>
-            <!-- car body -->
             <path d="M60 150 Q90 110 160 108 L360 108 Q400 108 420 140 L430 150 Z" fill="#20252d" stroke="#3a4150"/>
             <circle cx="140" cy="160" r="26" fill="#0b0d10" stroke="var(--hot-2)" stroke-width="3"/>
             <circle cx="360" cy="160" r="26" fill="#0b0d10" stroke="var(--hot-2)" stroke-width="3"/>
-            <!-- downforce arrows -->
             <line x1="140" y1="95" x2="140" y2="128" stroke="#3fd0ff" stroke-width="3" marker-end="url(#arrow)"/>
             <line x1="360" y1="95" x2="360" y2="128" stroke="#3fd0ff" stroke-width="3" marker-end="url(#arrow)"/>
             <text x="120" y="88" fill="#3fd0ff" font-family="JetBrains Mono" font-size="12">downforce</text>
-            <!-- heat burst at front wheel -->
             <circle class="glow-pulse" cx="140" cy="160" r="10" fill="url(#heatGrad)"/>
             <text x="95" y="205" fill="#ff8a5a" font-family="JetBrains Mono" font-size="12">KE &#8594; heat (friction)</text>
             <text x="330" y="205" fill="#9aa1ab" font-family="JetBrains Mono" font-size="12">rear</text>
@@ -302,7 +293,7 @@
       <section id="Materials" class="section">
         <p class="kicker">03 — Material Technology</p>
         <h2 class="h">Material Technology</h2>
-        <p>Carbon-carbon and carbon-ceramic brake materials are widely used in racing for their strength, heat resistance, durability and low weight. Carbon-ceramic discs have roughly one-third to one-half the unsprung mass and rotational inertia of a cast-iron disc, improving handling (SGL Carbon, n.d.). F1 carbon-carbon discs and pads exceed 1,000°C in operation and are resin-infused, compression-moulded, carbonised for close to three months at temperatures around 2,500°C, then CNC-machined over several weeks (Driver61, 2025). Discs contain around 1,200 cooling holes, are held to tolerances tighter than 0.02 mm, and wear at rates of up to 0.01 mm/km — figures that influence supercar systems even where GT and rally categories operate to different cost and regulatory constraints.</p>
+        <p>Carbon-carbon and carbon-ceramic materials are widely used in racing for their strength, heat resistance, durability and low weight. Carbon-ceramic discs have roughly one-third to one-half the unsprung mass and rotational inertia of cast iron, improving handling (SGL Carbon, n.d.). F1 carbon-carbon discs and pads exceed 1,000°C in operation and are resin-infused, compression-moulded, carbonised for close to three months at around 2,500°C, then CNC-machined over several weeks (Driver61, 2025). Discs contain around 1,200 cooling holes, hold tolerances tighter than 0.02 mm, and wear at up to 0.01 mm/km — figures that shape supercar systems even where GT and rally run to different cost and regulatory limits.</p>
 
         <figure class="diagram">
           <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="matTitle matDesc">
@@ -317,7 +308,6 @@
               <circle cx="130" cy="185" r="5"/><circle cx="107" cy="145" r="5"/><circle cx="107" cy="100" r="5"/>
               <circle cx="130" cy="60" r="5"/>
             </g>
-            <!-- callouts -->
             <line x1="275" y1="55" x2="380" y2="40" stroke="#565f6e"/>
             <text x="384" y="44" fill="#d9d7d2" font-family="Inter" font-size="13">~1,200 cooling holes</text>
             <line x1="180" y1="86" x2="380" y2="86" stroke="#565f6e"/>
@@ -336,7 +326,7 @@
       <section id="Systems" class="section">
         <p class="kicker">04 — Electronic Systems</p>
         <h2 class="h">Electronic Systems</h2>
-        <p>Formula One is about driver control and stopping performance, as opposed to the comfort-oriented braking found on the road. Wheel lock-up is not electronically prevented — there is no ABS — so drivers must control wheel-locking themselves (Mercedes-AMG PETRONAS F1 Team, 2019). This is demanding, but it also gives direct mechanical feedback and predictable braking into high-speed corners. Brake migration also adjusts brake balance according to fuel load through hydraulic control. GT cars can be fitted with Bosch Motorsport's ABS M5, which adjusts braking pressure thousands of times a second and allows controlled slip where it benefits steering and braking (Bosch Motorsport, n.d.). GT3 and GT4 cars running this system can offer up to twelve driver-selectable ABS maps, enabling quick adjustment for changing conditions such as rain (Bosch Motorsport, n.d.). Rally cars need to be more adaptable still, since surface conditions change constantly and braking grip is often unpredictable.</p>
+        <p>Formula One prioritises driver control and stopping performance over the comfort-oriented braking used on the road. There is no ABS, so drivers must control wheel-locking themselves (Mercedes-AMG PETRONAS F1 Team, 2019); this is demanding, but gives direct mechanical feedback and predictable braking into corners. Brake migration adjusts brake balance for fuel load through hydraulic control. GT cars can run Bosch Motorsport's ABS M5, which adjusts pressure thousands of times a second and allows controlled slip where it benefits steering and braking, offering up to twelve driver-selectable maps for changing conditions such as rain (Bosch Motorsport, n.d.). Rally cars need to be more adaptable still, since surface grip changes constantly and unpredictably.</p>
       </section>
 
       <hr class="thermal-rule section-divider">
@@ -344,7 +334,7 @@
       <section id="BBW" class="section">
         <p class="kicker">05 — Brake-by-Wire Technology</p>
         <h2 class="h">Brake-by-Wire Technology</h2>
-        <p>The introduction of brake-by-wire (BBW) technology in 2014 was a significant development in Formula 1. BBW is an electronic system that integrates the hydraulic rear brakes with the hybrid energy-recovery system, arbitrating between the calipers and the MGU-K so that total rear braking force matches what the driver has requested; F1 power units are able to harvest energy at rates of up to 350 kW during heavy braking, which demands careful, continuous management of rear-axle pressure (Racecar Engineering, 2025). Pedal pressure is read by a sensor and turned into a braking demand that accounts for how much energy recovery is available, so that braking feel and rear stability stay consistent even as the battery's state of charge changes. F1 and Formula E both use BBW, but with different integration of braking response and energy recovery for their respective hybrid and fully electric powertrains. Alongside hybrid and electric road-car powertrains, BBW and electronic brake boosters have also been adopted by GT vehicles, underlining how far this technology now reaches beyond Formula 1.</p>
+        <p>Brake-by-wire (BBW), introduced in 2014, was a major F1 development. It integrates the hydraulic rear brakes with the hybrid energy-recovery system, arbitrating between the calipers and the MGU-K so rear braking force matches driver demand; F1 power units can harvest up to 350 kW during heavy braking, requiring careful management of rear-axle pressure (Racecar Engineering, 2025). A pedal sensor reads driver demand and accounts for available recovery, keeping braking feel and rear stability consistent as battery charge changes. F1 and Formula E both use BBW, integrated differently for hybrid and fully electric powertrains, and GT cars have also adopted BBW and electronic brake boosters.</p>
       </section>
 
       <hr class="thermal-rule section-divider">
@@ -352,7 +342,7 @@
       <section id="Thermal" class="section">
         <p class="kicker">06 — Thermal Management</p>
         <h2 class="h">Thermal Management</h2>
-        <p>Thermal management is crucial given the risk of brake fade, boiling brake fluid, and material degradation at excessive temperatures. Cooling systems direct airflow through ducts to the calipers and pads to remove heat, which matters throughout the car but is particularly critical in F1. Cooling is important for both the brakes and the surrounding suspension components, since the air fed through the ducts is typically hundreds of degrees cooler than the disc surface it is used to cool (TotalSim, 2017). Carbon materials can begin to glaze or degrade at around 400°C, and high cooling rates can also cause problems in specific humidity and wet-weather conditions (Sabe Fluid Dynamics, n.d.). Tolerances must therefore account for wear, debris and thermal cycling. Rally components in particular need specific resistance to debris and to rapid swings between heat and cold, which demands very precise tolerance management.</p>
+        <p>Thermal management is crucial given the risk of brake fade, boiling brake fluid and material degradation. Cooling ducts direct airflow to the calipers and pads, critical in F1 for both brakes and nearby suspension, since duct air is typically hundreds of degrees cooler than the disc it cools (TotalSim, 2017). Carbon materials can glaze or degrade around 400°C, and high cooling rates can also cause problems in wet conditions (Sabe Fluid Dynamics, n.d.). Tolerances must account for wear, debris and thermal cycling; rally components especially need resistance to debris and rapid heat–cold swings.</p>
 
         <figure class="diagram">
           <svg viewBox="0 0 700 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="thermTitle thermDesc">
@@ -380,48 +370,48 @@
       <section id="Comparison" class="section">
         <p class="kicker">07 — Comparison Across Racing Types</p>
         <h2 class="h">Comparison Across Racing Types</h2>
-        <p>The brake system differs across racing categories because of the nature of the race, the surface, the endurance requirements and the weight of the car. Formula 1 achieves the highest deceleration performance through low weight, aerodynamic downforce, carbon-carbon brakes, BBW, brake migration and individual driver control through corners and chicanes. Robustness matters most for GT cars, which are heavier and therefore need more resilient braking and suspension, especially over endurance events. Rally cars need to be adaptable and safe as conditions and surface grip can change very quickly, particularly in the wet. Formula E combines a fully electric powertrain with BBW, showing how braking technology adapts to other powertrains and environments.</p>
+        <p>Braking differs across categories with the race, surface, endurance needs and weight. F1 achieves the highest deceleration through low weight, downforce, carbon-carbon brakes and BBW. GT cars, being heavier, prioritise robustness over long stints. Rally cars must adapt fast as grip changes suddenly, especially in the wet. Formula E pairs a fully electric powertrain with BBW.</p>
 
         <div class="table-wrap">
           <table class="compare">
-            <caption>Table 1 — Braking priorities and technology by racing category</caption>
+            <caption>Table 1 — Braking priorities by racing category</caption>
             <thead>
               <tr>
                 <th scope="col">Category</th>
-                <th scope="col">Primary Priority</th>
-                <th scope="col">Typical Materials</th>
+                <th scope="col">Priority</th>
+                <th scope="col">Materials</th>
                 <th scope="col">Electronics</th>
-                <th scope="col">Distinguishing Trait</th>
+                <th scope="col">Trait</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <th scope="row">Formula 1</th>
-                <td>Outright deceleration &amp; driver feel</td>
-                <td>Carbon-carbon discs &amp; pads</td>
-                <td>No ABS; brake migration; BBW + MGU-K recovery</td>
-                <td>Low weight, high downforce, individual corner control</td>
+                <td>Deceleration &amp; feel</td>
+                <td>Carbon-carbon</td>
+                <td>No ABS; BBW + MGU-K</td>
+                <td>Low weight, downforce</td>
               </tr>
               <tr>
-                <th scope="row">GT (GT3 / GT4)</th>
-                <td>Endurance robustness &amp; consistency</td>
-                <td>Steel or carbon-ceramic (per class regs)</td>
-                <td>Bosch ABS M5, up to 12 driver-selectable maps</td>
-                <td>Heavier cars, long stints, driver-adjustable assistance</td>
+                <th scope="row">GT3 / GT4</th>
+                <td>Endurance robustness</td>
+                <td>Steel / carbon-ceramic</td>
+                <td>Bosch ABS M5, 12 maps</td>
+                <td>Heavier, long stints</td>
               </tr>
               <tr>
                 <th scope="row">Rally</th>
-                <td>Adaptability across surfaces</td>
-                <td>Steel discs, debris-resistant calipers</td>
-                <td>Driver-controlled; minimal ABS reliance</td>
-                <td>Rapid grip changes, debris and thermal-cycling resistance</td>
+                <td>Surface adaptability</td>
+                <td>Steel, debris-resistant</td>
+                <td>Driver-controlled</td>
+                <td>Rapid grip changes</td>
               </tr>
               <tr>
                 <th scope="row">Formula E</th>
-                <td>Integrated energy recovery</td>
-                <td>Lightweight steel / composite</td>
-                <td>Full BBW, front &amp; rear regeneration</td>
-                <td>Fully electric powertrain integration</td>
+                <td>Energy recovery</td>
+                <td>Lightweight composite</td>
+                <td>Full BBW, front &amp; rear</td>
+                <td>Fully electric</td>
               </tr>
             </tbody>
           </table>
@@ -433,7 +423,7 @@
       <section id="Transition" class="section">
         <p class="kicker">08 — Transition to Road Cars</p>
         <h2 class="h">Transition to Road Cars</h2>
-        <p>Motorsport developments are increasingly carried over into high-performance road-car braking systems. Commercial applications of lightweight, heat-resistant carbon composites developed for racing — such as resin-infiltrated manufacturing — are now in production use (SGL Carbon, n.d.). ABS and electronic braking systems are another example of motorsport technology transferred to road applications, where comfort, safety and reliability sit alongside performance as key design factors. With hybrid and electric powertrains, BBW has become increasingly important as it lets braking, energy recovery and vehicle control work together. Motorsport therefore acts as a testing ground for technologies that can be transferred to road vehicles with acceptable levels of safety, reliability and integration for commercial use.</p>
+        <p>Motorsport developments increasingly carry over into high-performance road cars. Lightweight, heat-resistant carbon composites developed for racing, such as resin-infiltrated manufacturing, are now in commercial production (SGL Carbon, n.d.). ABS and electronic braking are further examples of motorsport technology transferred to the road, where comfort, safety and reliability sit alongside performance. With hybrid and electric powertrains, BBW is increasingly important, letting braking, energy recovery and vehicle control work together. Motorsport therefore acts as a proving ground for technologies later transferred to road vehicles with acceptable safety, reliability and integration.</p>
       </section>
 
       <hr class="thermal-rule section-divider">
@@ -441,7 +431,7 @@
       <section id="Conclusion" class="section">
         <p class="kicker">09 — Conclusion</p>
         <h2 class="h">Conclusion</h2>
-        <p>High-performance braking in motorsport is the product of decades of progress across physics, materials, electronics and thermal management, each pushing the others forward as regulations and race conditions change. Formula 1 shows what is possible at the limit of performance; GT and rally show how the same underlying principles adapt to endurance racing and unpredictable surfaces; and Formula E shows how braking integrates with a fully electric powertrain. As these technologies continue to mature, motorsport remains the proving ground from which materials, electronics and thermal-management strategies filter down into safer, more capable road and supercars.</p>
+        <p>High-performance braking in motorsport is the product of decades of progress across physics, materials, electronics and thermal management, each pushing the others forward as regulations and race conditions change. Formula 1 shows what is possible at the limit of performance; GT and rally adapt the same principles to endurance and unpredictable surfaces; and Formula E shows how braking integrates with a fully electric powertrain. Motorsport remains the proving ground from which these strategies filter down into safer, more capable road cars and supercars.</p>
       </section>
 
     </article>
@@ -491,7 +481,6 @@
 </footer>
 
 <script>
-  // ---- GitHub last-commit time ----
   async function getLastUpdatedTime() {
     const username = 'FEPSFY6953692';
     const repo = 'FY6953692';
@@ -522,15 +511,16 @@
 
   window.addEventListener('load', getLastUpdatedTime);
 
-  // ---- Word count (Abstract through Conclusion only; References excluded) ----
+  // Word count (Abstract through Conclusion; figures, tables and References excluded)
   function displayTotalWordCount() {
     const body = document.getElementById('report-body');
-    const text = body.textContent || '';
+    const clone = body.cloneNode(true);
+    clone.querySelectorAll('figure, table').forEach(el => el.remove());
+    const text = clone.textContent || '';
     const words = text.trim().split(/\s+/).filter(Boolean);
     document.getElementById('totalWordCount').textContent = `${words.length} words`;
   }
 
-  // ---- Timestamp of page load ----
   function displayTimestamp() {
     document.getElementById('timestamp').textContent = new Date().toLocaleString();
   }
