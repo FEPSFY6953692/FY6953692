@@ -4,283 +4,156 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>High-Performance Braking Systems in Motorsport | ENG0018</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#0b0d10;
-    --panel:#14171c;
-    --panel-2:#181c22;
-    --line:#262b33;
-    --text:#e9e7e2;
-    --muted:#9aa1ab;
-    --hot:#ff5a36;
-    --hot-2:#ffb35a;
-    --cool:#3fd0ff;
-    --cool-2:#7fe8c8;
-    --display:'Oswald',sans-serif;
-    --body:'Inter',sans-serif;
-    --mono:'JetBrains Mono',monospace;
-    --thermal-grad:linear-gradient(90deg,var(--cool) 0%,var(--cool-2) 30%,var(--hot-2) 65%,var(--hot) 100%);
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--bg);
-    color:var(--text);
-    font-family:var(--body);
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
+    background:#f4f4f4;
+    color:#222;
+    font-family:Calibri, Arial, Helvetica, sans-serif;
+    line-height:1.55;
   }
-  a{color:var(--cool-2);}
-  a:focus-visible, button:focus-visible, summary:focus-visible{
-    outline:2px solid var(--cool);
-    outline-offset:3px;
-  }
-  .skip-link{
-    position:absolute; left:-999px; top:0; background:var(--hot); color:#0b0d10;
-    padding:.6rem 1rem; z-index:100; font-family:var(--mono); font-size:.85rem;
-  }
-  .skip-link:focus{ left:1rem; top:1rem; }
+  a{ color:#0645AD; }
+  a:hover{ text-decoration:none; }
+  img{ max-width:100%; display:block; }
 
-  img{max-width:100%; display:block;}
+  .banner-wrap{ width:100%; text-align:center; background:#fff; }
+  .banner-wrap img{ width:50%; height:auto; margin:0 auto; }
 
-  .banner-wrap{ width:100%; overflow:hidden; background:#000; line-height:0; }
-  .banner-wrap img{ width:100%; height:auto; opacity:.55; display:block; }
+  header{
+    background:#fff;
+    border-bottom:2px solid #333;
+    padding:1.2rem 1.5rem;
+    text-align:center;
+  }
+  header h1{ margin:.2rem 0; font-size:1.7rem; }
+  header p.meta{ margin:.2rem 0; color:#444; font-size:.95rem; }
 
-  header.masthead{
-    border-bottom:1px solid var(--line);
-    background:
-      radial-gradient(1100px 420px at 15% -10%, rgba(255,90,54,.16), transparent 60%),
-      radial-gradient(900px 380px at 85% -20%, rgba(63,208,255,.12), transparent 60%),
-      var(--panel);
-    padding:2.2rem 1.5rem 2.6rem;
-  }
-  .masthead-inner{ max-width:1180px; margin:0 auto; }
-  .eyebrow-row{
-    display:flex; flex-wrap:wrap; gap:.6rem 1.2rem; align-items:center;
-    font-family:var(--mono); font-size:.78rem; color:var(--muted);
-    text-transform:uppercase; letter-spacing:.08em; margin-bottom:1.1rem;
-  }
-  .eyebrow-row .tag{
-    border:1px solid var(--line); border-radius:999px; padding:.28rem .75rem;
-    background:var(--panel-2);
-  }
-  h1.title{
-    font-family:var(--display); font-weight:700; letter-spacing:.01em;
-    font-size:clamp(1.9rem, 4.2vw, 3.4rem); line-height:1.06; margin:0 0 .6rem;
-    max-width:16ch;
-  }
-  h1.title .accent{ color:var(--hot); }
-  .subtitle{
-    color:var(--muted); font-size:1.05rem; max-width:62ch; margin:0 0 1.6rem;
-  }
+  .wrap{ max-width:900px; margin:0 auto; padding:1.5rem; background:#fff; }
 
-  .stat-strip{
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:1px; background:var(--line); border:1px solid var(--line);
-    border-radius:10px; overflow:hidden; margin-top:1.4rem;
+  nav.toc{
+    border:1px solid #999; padding:1rem 1.2rem; margin:1.2rem 0;
+    background:#fafafa;
   }
-  .stat{ background:var(--panel-2); padding:.9rem 1.1rem; }
-  .stat .num{
-    font-family:var(--mono); font-size:1.35rem; font-weight:600; color:var(--hot-2);
-    display:block;
-  }
-  .stat .label{ font-size:.74rem; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; }
+  nav.toc h2{ font-size:1.05rem; margin:0 0 .6rem; }
+  nav.toc ol{ margin:0; padding-left:1.3rem; }
+  nav.toc li{ margin-bottom:.25rem; }
 
-  .thermal-rule{ height:3px; border:0; background:var(--thermal-grad); margin:0; border-radius:2px; }
-  .thermal-rule.section-divider{ margin:3rem 0; }
+  section{ margin:1.6rem 0; }
+  section h2{
+    font-size:1.3rem; border-bottom:1px solid #ccc; padding-bottom:.25rem; margin-bottom:.7rem;
+  }
+  section p{ margin:.7rem 0; text-align:justify; }
+  .abstract p{ font-style:italic; }
 
-  .layout{
-    max-width:1180px; margin:0 auto; padding:2.4rem 1.5rem 4rem;
-    display:grid; grid-template-columns:230px minmax(0,1fr); gap:2.6rem;
-  }
-  nav.toc{ align-self:start; position:sticky; top:1.2rem; }
-  nav.toc h2{
-    font-family:var(--mono); font-size:.75rem; text-transform:uppercase;
-    letter-spacing:.08em; color:var(--muted); margin:0 0 .8rem;
-  }
-  nav.toc ol{ list-style:none; margin:0; padding:0; border-left:1px solid var(--line); }
-  nav.toc li{ margin:0; }
-  nav.toc a{
-    display:block; padding:.42rem .9rem; margin-left:-1px; border-left:2px solid transparent;
-    color:var(--muted); text-decoration:none; font-size:.9rem;
-  }
-  nav.toc a:hover, nav.toc a:focus-visible{ color:var(--text); border-left-color:var(--hot); }
-  nav.toc a .n{ font-family:var(--mono); color:var(--cool-2); margin-right:.4rem; font-size:.78rem; }
+  hr{ border:none; border-top:1px solid #ccc; margin:1.6rem 0; }
 
-  main.report{ min-width:0; }
-  section.section{ padding-top:.2rem; scroll-margin-top:1.2rem; }
-  .kicker{
-    font-family:var(--mono); font-size:.78rem; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--hot-2); margin:0 0 .4rem;
+  figure{
+    margin:1rem 0; text-align:center; border:1px solid #ccc; padding:.8rem; background:#fafafa;
   }
-  h2.h{ font-family:var(--display); font-size:clamp(1.4rem,2.6vw,2rem); margin:0 0 1rem; font-weight:600; }
-  h3.h3{ font-family:var(--display); font-size:1.15rem; margin:1.6rem 0 .6rem; font-weight:600; color:var(--hot-2); }
-  section.section p{ color:#d9d7d2; max-width:74ch; }
-  section.section p + p{ margin-top:1rem; }
-  .abstract p{ font-style:italic; color:var(--muted); border-left:2px solid var(--line); padding-left:1rem; }
+  figure svg{ max-width:100%; height:auto; }
+  figcaption{ font-size:.85rem; color:#555; margin-top:.4rem; }
 
-  figure.diagram{
-    margin:1.6rem 0; background:var(--panel-2); border:1px solid var(--line);
-    border-radius:10px; padding:1.1rem 1.2rem 1rem;
+  table{
+    width:100%; border-collapse:collapse; margin:1rem 0; font-size:.92rem;
   }
-  figure.diagram svg{ width:100%; height:auto; display:block; }
-  figure.diagram figcaption{
-    font-size:.82rem; color:var(--muted); margin-top:.6rem; font-family:var(--mono);
-  }
+  caption{ text-align:left; font-weight:bold; margin-bottom:.4rem; }
+  th, td{ border:1px solid #999; padding:.5rem .6rem; text-align:left; vertical-align:top; }
+  th{ background:#e6e6e6; }
+  tbody tr:nth-child(even){ background:#f7f7f7; }
 
-  .table-wrap{ overflow-x:auto; margin:1.4rem 0; border:1px solid var(--line); border-radius:10px; }
-  table.compare{ width:100%; border-collapse:collapse; min-width:640px; font-size:.92rem; }
-  table.compare caption{ text-align:left; padding:.9rem 1rem .3rem; font-family:var(--mono); color:var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; }
-  table.compare th, table.compare td{ padding:.75rem 1rem; text-align:left; border-top:1px solid var(--line); vertical-align:top; }
-  table.compare thead th{ background:var(--panel-2); font-family:var(--mono); font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; color:var(--hot-2); border-top:none; }
-  table.compare tbody th{ font-family:var(--display); font-weight:600; color:var(--text); white-space:nowrap; background:var(--panel-2); }
-  table.compare tbody tr:nth-child(even) td, table.compare tbody tr:nth-child(even) th{ background:rgba(255,255,255,.02); }
+  ol.refs{ padding-left:1.4rem; }
+  ol.refs li{ margin-bottom:.6rem; font-size:.94rem; }
 
-  section.references{ padding-top:.5rem; }
-  ol.refs{ list-style:none; margin:0; padding:0; counter-reset:refnum; }
-  ol.refs li{
-    counter-increment:refnum; position:relative; padding:.6rem 0 .6rem 2.6rem;
-    border-top:1px solid var(--line); font-size:.94rem; color:#d9d7d2;
-  }
-  ol.refs li:first-child{ border-top:none; }
-  ol.refs li::before{
-    content:"[" counter(refnum) "]"; position:absolute; left:0; top:.6rem;
-    font-family:var(--mono); color:var(--cool-2); font-size:.85rem;
-  }
-  ol.refs a{ word-break:break-all; }
-
-  .video-wrap video{ width:100%; border-radius:10px; border:1px solid var(--line); background:#000; }
+  video{ width:100%; border:1px solid #999; background:#000; }
 
   .meta-panel{
-    background:var(--panel-2); border:1px solid var(--line); border-radius:10px;
-    padding:1.2rem 1.3rem; display:grid; gap:.5rem; font-family:var(--mono); font-size:.86rem;
+    border:1px solid #999; background:#fafafa; padding:1rem 1.2rem; margin-top:1rem;
   }
-  .meta-panel .row{ display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
-  .meta-panel .row span:first-child{ color:var(--muted); }
-  #totalWordCount, #wordcount{ color:var(--cool-2); }
-  #timestamp, #last-updated{ color:var(--hot-2); }
+  .meta-panel p{ margin:.3rem 0; font-size:.92rem; }
+  .meta-panel span.label{ font-weight:bold; }
+  #timestamp{ color:#a33; }
 
-  button.verify-btn{
-    font-family:var(--mono); font-size:.82rem; background:transparent; color:var(--text);
-    border:1px solid var(--line); border-radius:6px; padding:.55rem 1rem; cursor:pointer;
-    margin-top:.4rem; width:fit-content;
+  button{
+    font-family:inherit; font-size:.9rem; padding:.4rem .9rem; margin-top:.5rem;
+    border:1px solid #666; background:#eee; cursor:pointer;
   }
-  button.verify-btn:hover{ border-color:var(--hot); color:var(--hot-2); }
+  button:hover{ background:#ddd; }
 
-  footer.site-footer{
-    border-top:1px solid var(--line); padding:2rem 1.5rem; text-align:center;
-    color:var(--muted); font-family:var(--mono); font-size:.78rem;
+  footer{
+    text-align:center; padding:1.2rem; font-size:.85rem; color:#555;
   }
 
-  @media (max-width:860px){
-    .layout{ grid-template-columns:1fr; }
-    nav.toc{ position:static; border-bottom:1px solid var(--line); padding-bottom:1.2rem; margin-bottom:.6rem; }
-    nav.toc ol{ display:flex; flex-wrap:wrap; gap:.3rem .6rem; border-left:none; }
-    nav.toc a{ border:1px solid var(--line); border-radius:999px; padding:.32rem .8rem; margin-left:0; }
-    nav.toc a:hover, nav.toc a:focus-visible{ border-color:var(--hot); }
-  }
-  @media (prefers-reduced-motion:no-preference){
-    .glow-pulse{ animation:pulse 3.2s ease-in-out infinite; }
-  }
-  @keyframes pulse{
-    0%,100%{ opacity:.55; } 50%{ opacity:1; }
+  @media (max-width:600px){
+    header h1{ font-size:1.35rem; }
   }
 </style>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to content</a>
 
 <div class="banner-wrap">
   <img src="WebBanner2023.png" alt="" onerror="this.parentElement.style.display='none'">
 </div>
 
-<header class="masthead">
-  <div class="masthead-inner">
-    <div class="eyebrow-row">
-      <span class="tag">ENG0018 Computer Laboratory 2025/26</span>
-      <span class="tag">Student URN: 6953692</span>
-      <span class="tag">Conference Paper</span>
-    </div>
-    <h1 class="title">High-Performance <span class="accent">Braking</span> Systems in Motorsport</h1>
-    <p class="subtitle">How physics, materials, electronics and thermal management combine to stop a race car — and how that engineering finds its way onto the road.</p>
-
-    <div class="stat-strip">
-      <div class="stat"><span class="num">200&rarr;60</span><span class="label">mph in ~3s (F1)</span></div>
-      <div class="stat"><span class="num">1,200°C</span><span class="label">peak disc temperature</span></div>
-      <div class="stat"><span class="num">1,000+ lb</span><span class="label">downforce, F1</span></div>
-      <div class="stat"><span class="num">12</span><span class="label">driver-selectable ABS maps</span></div>
-    </div>
-  </div>
+<header>
+  <p class="meta">ENG0018 Computer Laboratory 2025/26 &nbsp;|&nbsp; Student URN: 6953692</p>
+  <h1>Conference Paper: High-Performance Braking Systems in Motorsport</h1>
 </header>
 
-<div class="layout">
+<div class="wrap">
+
   <nav class="toc" aria-label="Table of contents">
-    <h2>Contents</h2>
+    <h2>Table of Contents</h2>
     <ol>
-      <li><a href="#Abstract"><span class="n">00</span>Abstract</a></li>
-      <li><a href="#Introduction"><span class="n">01</span>Introduction</a></li>
-      <li><a href="#Physics"><span class="n">02</span>Physics of Braking</a></li>
-      <li><a href="#Materials"><span class="n">03</span>Material Technology</a></li>
-      <li><a href="#Systems"><span class="n">04</span>Electronic Systems</a></li>
-      <li><a href="#BBW"><span class="n">05</span>Brake-by-Wire</a></li>
-      <li><a href="#Thermal"><span class="n">06</span>Thermal Management</a></li>
-      <li><a href="#Comparison"><span class="n">07</span>Comparison Across Racing Types</a></li>
-      <li><a href="#Transition"><span class="n">08</span>Transition to Road Cars</a></li>
-      <li><a href="#Conclusion"><span class="n">09</span>Conclusion</a></li>
-      <li><a href="#References"><span class="n">10</span>References</a></li>
+      <li><a href="#Abstract">Abstract</a></li>
+      <li><a href="#Introduction">Introduction</a></li>
+      <li><a href="#Physics">Physics of Braking</a></li>
+      <li><a href="#Materials">Material Technology</a></li>
+      <li><a href="#Systems">Electronic Systems</a></li>
+      <li><a href="#BBW">Brake-by-Wire Technology</a></li>
+      <li><a href="#Thermal">Thermal Management</a></li>
+      <li><a href="#Comparison">Comparison Across Racing Types</a></li>
+      <li><a href="#Transition">Transition to Road Cars</a></li>
+      <li><a href="#Conclusion">Conclusion</a></li>
+      <li><a href="#References">References</a></li>
     </ol>
   </nav>
 
-  <main id="main-content">
-    <article class="report" id="report-body">
+  <main>
+    <article id="report-body">
 
-      <section id="Abstract" class="section abstract">
-        <p class="kicker">00 — Abstract</p>
+      <section id="Abstract" class="abstract">
+        <h2>Abstract</h2>
         <p>High-performance braking in motorsport, from Formula 1 to GT and rallying, depends on progress in physics, materials, electronics and thermal management. This paper covers how these technologies operate under different performance, safety and regulatory constraints, and how motorsport braking developments transfer to high-performance road cars and supercars.</p>
       </section>
 
-      <hr class="thermal-rule section-divider">
+      <hr>
 
-      <section id="Introduction" class="section">
-        <p class="kicker">01 — Introduction</p>
-        <h2 class="h">Introduction</h2>
-        <p>Braking materials, physics and engineering have evolved across Formula 1, GT and rallying. F1 cars, such as those run by Mercedes-AMG PETRONAS, use advanced materials, aerothermal design and electronics to decelerate from 200 to 60 mph in about three seconds (Mercedes-AMG PETRONAS F1 Team, 2019). Thermal degradation becomes significant above 1,000°C, requiring specialised research such as that from Sabe Fluid Dynamics (n.d.). While the underlying physics is shared, electronics regulations such as those governing ABS create real differences in complexity across categories. This paper examines braking through physics, materials, electronics, system evolution and thermal management, and its transfer to road cars.</p>
+      <section id="Introduction">
+        <h2>Introduction</h2>
+        <p>The braking materials, physics and engineering have developed across F1, GT and rallying. F1 cars, such as those of Mercedes-AMG PETRONAS, are capable of reducing their speed from 200 to 60 mph in approximately three seconds, due to advanced materials, aerothermal design and electronics (Mercedes-AMG PETRONAS F1 Team, 2019). Thermal degradation becomes appreciable at temperatures over 1,000°C, and specialised research like that from Sabe Fluid Dynamics (n.d.) is needed. Electronics regulations such as ABS cause a distinction in complexity between categories, although the physics is the same. This paper discusses the physics, materials, electronics, system evolution and thermal management of braking, and its transfer to road cars.</p>
       </section>
 
-      <hr class="thermal-rule section-divider">
+      <hr>
 
-      <section id="Physics" class="section">
-        <p class="kicker">02 — Physics of Braking</p>
-        <h2 class="h">Physics of Braking</h2>
-        <p>Braking converts kinetic energy into heat through friction, placing heavy mechanical and thermal loads on the system. F1 calipers and rotors release enormous heat as the car slows from 200 to 60 mph (Mercedes-AMG PETRONAS F1 Team, 2019). Tyre grip is the limiting factor, so aerodynamic downforce — F1 cars can exceed 1,000 lb — improves grip, while heavy braking shifts weight forward. Materials must resist thermal expansion, fracturing and frictional loads at 400°C and, in places, over 1,200°C (Sabe Fluid Dynamics, n.d.). Suitability depends on thermal resistance, a stable friction coefficient, and how the disc and pad interact.</p>
+      <section id="Physics">
+        <h2>Physics of Braking</h2>
+        <p>When braking, kinetic energy is transformed into heat by friction, causing heavy mechanical and thermal stresses on the system. When the car slows from 200 to 60 mph, a tremendous amount of heat is generated by the F1 calipers and rotors (Mercedes-AMG PETRONAS F1 Team, 2019). Aerodynamic downforce increases grip — F1 cars may have more than 1,000 lb of it — and heavy braking moves weight forward, where it is more easily held by the tyres. Materials should not expand, fracture or be overcome by frictional forces at 400°C, or even at places over 1,200°C (Sabe Fluid Dynamics, n.d.). Suitability depends on thermal resistance, stability of the friction coefficient, and disc-pad interaction.</p>
 
-        <figure class="diagram">
-          <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="physicsTitle physicsDesc">
+        <figure>
+          <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="physicsTitle physicsDesc">
             <title id="physicsTitle">Braking physics diagram</title>
             <desc id="physicsDesc">Kinetic energy converts to heat at the disc/pad interface while downforce increases tyre load and grip.</desc>
-            <defs>
-              <linearGradient id="heatGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#3fd0ff"/>
-                <stop offset="100%" stop-color="#ff5a36"/>
-              </linearGradient>
-            </defs>
-            <rect x="0" y="0" width="700" height="230" fill="none"/>
-            <path d="M60 150 Q90 110 160 108 L360 108 Q400 108 420 140 L430 150 Z" fill="#20252d" stroke="#3a4150"/>
-            <circle cx="140" cy="160" r="26" fill="#0b0d10" stroke="var(--hot-2)" stroke-width="3"/>
-            <circle cx="360" cy="160" r="26" fill="#0b0d10" stroke="var(--hot-2)" stroke-width="3"/>
-            <line x1="140" y1="95" x2="140" y2="128" stroke="#3fd0ff" stroke-width="3" marker-end="url(#arrow)"/>
-            <line x1="360" y1="95" x2="360" y2="128" stroke="#3fd0ff" stroke-width="3" marker-end="url(#arrow)"/>
-            <text x="120" y="88" fill="#3fd0ff" font-family="JetBrains Mono" font-size="12">downforce</text>
-            <circle class="glow-pulse" cx="140" cy="160" r="10" fill="url(#heatGrad)"/>
-            <text x="95" y="205" fill="#ff8a5a" font-family="JetBrains Mono" font-size="12">KE &#8594; heat (friction)</text>
-            <text x="330" y="205" fill="#9aa1ab" font-family="JetBrains Mono" font-size="12">rear</text>
+            <path d="M60 150 Q90 110 160 108 L360 108 Q400 108 420 140 L430 150 Z" fill="#eaeaea" stroke="#666"/>
+            <circle cx="140" cy="160" r="24" fill="#fff" stroke="#333" stroke-width="2"/>
+            <circle cx="360" cy="160" r="24" fill="#fff" stroke="#333" stroke-width="2"/>
+            <line x1="140" y1="95" x2="140" y2="126" stroke="#0645AD" stroke-width="2" marker-end="url(#arrow)"/>
+            <line x1="360" y1="95" x2="360" y2="126" stroke="#0645AD" stroke-width="2" marker-end="url(#arrow)"/>
+            <text x="120" y="86" fill="#0645AD" font-size="12">downforce</text>
+            <circle cx="140" cy="160" r="8" fill="#c33"/>
+            <text x="95" y="196" fill="#c33" font-size="12">kinetic energy &#8594; heat</text>
             <defs>
               <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
-                <path d="M0,0 L8,4 L0,8 Z" fill="#3fd0ff"/>
+                <path d="M0,0 L8,4 L0,8 Z" fill="#0645AD"/>
               </marker>
             </defs>
           </svg>
@@ -288,167 +161,150 @@
         </figure>
       </section>
 
-      <hr class="thermal-rule section-divider">
+      <hr>
 
-      <section id="Materials" class="section">
-        <p class="kicker">03 — Material Technology</p>
-        <h2 class="h">Material Technology</h2>
-        <p>Carbon-carbon and carbon-ceramic materials are widely used in racing for their strength, heat resistance, durability and low weight. Carbon-ceramic discs have roughly one-third to one-half the unsprung mass and rotational inertia of cast iron, improving handling (SGL Carbon, n.d.). F1 carbon-carbon discs and pads exceed 1,000°C in operation and are resin-infused, compression-moulded, carbonised for close to three months at around 2,500°C, then CNC-machined over several weeks (Driver61, 2025). Discs contain around 1,200 cooling holes, hold tolerances tighter than 0.02 mm, and wear at up to 0.01 mm/km — figures that shape supercar systems even where GT and rally run to different cost and regulatory limits.</p>
+      <section id="Materials">
+        <h2>Material Technology</h2>
+        <p>Carbon-carbon and carbon-ceramic materials are popular in racing due to their strength, heat resistance, durability and light weight. Carbon-ceramic discs are approximately 1/3–1/2 the unsprung mass and rotational inertia of cast iron, which helps handling (SGL Carbon, n.d.). F1 discs and pads run even hotter, at over 1,000°C, and are resin-infused, compression-moulded, carbonised for nearly three months at close to 2,500°C, then CNC-machined over weeks (Driver61, 2025). Even with differing GT and rally cost and regulation limits, each disc has around 1,200 cooling holes, tolerances of no more than 0.02 mm, and wear of up to 0.01 mm/km.</p>
 
-        <figure class="diagram">
-          <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="matTitle matDesc">
+        <figure>
+          <svg viewBox="0 0 700 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="matTitle matDesc">
             <title id="matTitle">Carbon-carbon disc cross-section</title>
             <desc id="matDesc">A vented carbon-carbon disc showing cooling holes and layered composite structure.</desc>
-            <circle cx="180" cy="120" r="95" fill="#181c22" stroke="#3a4150" stroke-width="2"/>
-            <circle cx="180" cy="120" r="95" fill="none" stroke="var(--hot-2)" stroke-width="1" stroke-dasharray="2 6" opacity=".5"/>
-            <circle cx="180" cy="120" r="34" fill="#0b0d10" stroke="#3a4150" stroke-width="2"/>
-            <g fill="#0b0d10" stroke="#3a4150">
-              <circle cx="180" cy="46" r="5"/><circle cx="230" cy="60" r="5"/><circle cx="255" cy="100" r="5"/>
-              <circle cx="255" cy="145" r="5"/><circle cx="230" cy="185" r="5"/><circle cx="180" cy="198" r="5"/>
-              <circle cx="130" cy="185" r="5"/><circle cx="107" cy="145" r="5"/><circle cx="107" cy="100" r="5"/>
-              <circle cx="130" cy="60" r="5"/>
+            <circle cx="170" cy="115" r="90" fill="#fff" stroke="#666" stroke-width="2"/>
+            <circle cx="170" cy="115" r="32" fill="#eee" stroke="#666" stroke-width="2"/>
+            <g fill="#fff" stroke="#666">
+              <circle cx="170" cy="45" r="5"/><circle cx="218" cy="58" r="5"/><circle cx="242" cy="95" r="5"/>
+              <circle cx="242" cy="138" r="5"/><circle cx="218" cy="175" r="5"/><circle cx="170" cy="188" r="5"/>
+              <circle cx="122" cy="175" r="5"/><circle cx="100" cy="138" r="5"/><circle cx="100" cy="95" r="5"/>
+              <circle cx="122" cy="58" r="5"/>
             </g>
-            <line x1="275" y1="55" x2="380" y2="40" stroke="#565f6e"/>
-            <text x="384" y="44" fill="#d9d7d2" font-family="Inter" font-size="13">~1,200 cooling holes</text>
-            <line x1="180" y1="86" x2="380" y2="86" stroke="#565f6e"/>
-            <text x="384" y="90" fill="#d9d7d2" font-family="Inter" font-size="13">C/C friction ring, &gt;1,000°C</text>
-            <line x1="180" y1="120" x2="380" y2="130" stroke="#565f6e"/>
-            <text x="384" y="134" fill="#d9d7d2" font-family="Inter" font-size="13">hub / mounting bell</text>
-            <line x1="255" y1="180" x2="380" y2="180" stroke="#565f6e"/>
-            <text x="384" y="184" fill="#d9d7d2" font-family="Inter" font-size="13">tolerance &lt; 0.02 mm</text>
+            <line x1="260" y1="52" x2="370" y2="40" stroke="#999"/>
+            <text x="374" y="44" fill="#222" font-size="13">~1,200 cooling holes</text>
+            <line x1="170" y1="80" x2="370" y2="80" stroke="#999"/>
+            <text x="374" y="84" fill="#222" font-size="13">carbon-carbon ring, &gt;1,000°C</text>
+            <line x1="170" y1="115" x2="370" y2="125" stroke="#999"/>
+            <text x="374" y="129" fill="#222" font-size="13">hub / mounting bell</text>
+            <line x1="242" y1="172" x2="370" y2="172" stroke="#999"/>
+            <text x="374" y="176" fill="#222" font-size="13">tolerance &lt; 0.02 mm</text>
           </svg>
           <figcaption>Fig. 2 — Simplified cross-section of a vented carbon-carbon disc (Driver61, 2025; SGL Carbon, n.d.).</figcaption>
         </figure>
       </section>
 
-      <hr class="thermal-rule section-divider">
+      <hr>
 
-      <section id="Systems" class="section">
-        <p class="kicker">04 — Electronic Systems</p>
-        <h2 class="h">Electronic Systems</h2>
-        <p>Formula One prioritises driver control and stopping performance over the comfort-oriented braking used on the road. There is no ABS, so drivers must control wheel-locking themselves (Mercedes-AMG PETRONAS F1 Team, 2019); this is demanding, but gives direct mechanical feedback and predictable braking into corners. Brake migration adjusts brake balance for fuel load through hydraulic control. GT cars can run Bosch Motorsport's ABS M5, which adjusts pressure thousands of times a second and allows controlled slip where it benefits steering and braking, offering up to twelve driver-selectable maps for changing conditions such as rain (Bosch Motorsport, n.d.). Rally cars need to be more adaptable still, since surface grip changes constantly and unpredictably.</p>
+      <section id="Systems">
+        <h2>Electronic Systems</h2>
+        <p>Stopping power and driver control matter most for Formula One, unlike the comfort braking used on the road. There's no ABS — drivers must brake themselves and avoid wheel lock-up (Mercedes-AMG PETRONAS F1 Team, 2019), which is difficult but gives direct mechanical feedback and predictable braking into corners. Brake migration adjusts brake balance, via hydraulic control, for fuel load. GT cars can be fitted with Bosch Motorsport's ABS M5, which changes pressure thousands of times a second and allows controlled slip that enhances steering and braking, with up to 12 driver-selectable maps for conditions such as rain (Bosch Motorsport, n.d.). Rally cars must be even more versatile, as surface grip changes constantly and unpredictably.</p>
       </section>
 
-      <hr class="thermal-rule section-divider">
+      <hr>
 
-      <section id="BBW" class="section">
-        <p class="kicker">05 — Brake-by-Wire Technology</p>
-        <h2 class="h">Brake-by-Wire Technology</h2>
-        <p>Brake-by-wire (BBW), introduced in 2014, was a major F1 development. It integrates the hydraulic rear brakes with the hybrid energy-recovery system, arbitrating between the calipers and the MGU-K so rear braking force matches driver demand; F1 power units can harvest up to 350 kW during heavy braking, requiring careful management of rear-axle pressure (Racecar Engineering, 2025). A pedal sensor reads driver demand and accounts for available recovery, keeping braking feel and rear stability consistent as battery charge changes. F1 and Formula E both use BBW, integrated differently for hybrid and fully electric powertrains, and GT cars have also adopted BBW and electronic brake boosters.</p>
+      <section id="BBW">
+        <h2>Brake-by-Wire Technology</h2>
+        <p>A great F1 development was brake-by-wire (BBW) in 2014. It combines the hydraulic rear brakes with the hybrid energy-recovery system, balancing the calipers and the MGU-K to deliver the right amount of braking power when the driver needs it; in heavy braking this can generate up to 350 kW that the energy-recovery system can use if managed properly, keeping rear-axle braking force under control (Racecar Engineering, 2025). A pedal sensor reads driver demand and accounts for available recovery, keeping feel and rear stability consistent regardless of battery charge. F1 and Formula E both use BBW, in different configurations for hybrid and all-electric cars, and GT cars use BBW and electronic brake boosters too.</p>
       </section>
 
-      <hr class="thermal-rule section-divider">
+      <hr>
 
-      <section id="Thermal" class="section">
-        <p class="kicker">06 — Thermal Management</p>
-        <h2 class="h">Thermal Management</h2>
-        <p>Thermal management is crucial given the risk of brake fade, boiling brake fluid and material degradation. Cooling ducts direct airflow to the calipers and pads, critical in F1 for both brakes and nearby suspension, since duct air is typically hundreds of degrees cooler than the disc it cools (TotalSim, 2017). Carbon materials can glaze or degrade around 400°C, and high cooling rates can also cause problems in wet conditions (Sabe Fluid Dynamics, n.d.). Tolerances must account for wear, debris and thermal cycling; rally components especially need resistance to debris and rapid heat–cold swings.</p>
+      <section id="Thermal">
+        <h2>Thermal Management</h2>
+        <p>Thermal management matters because of brake fade, boiling brake fluid and material degradation. In F1, cooling ducts bring air through the calipers, pads and nearby suspension components — duct air is often hundreds of degrees cooler than the disc it cools (TotalSim, 2017). Carbon materials typically glaze or degrade around 400°C, and high cooling rates can also cause problems in wet conditions (Sabe Fluid Dynamics, n.d.). Wear, debris and thermal cycling are all important when setting tolerances; rally components are especially sensitive to temperature extremes and debris.</p>
 
-        <figure class="diagram">
-          <svg viewBox="0 0 700 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="thermTitle thermDesc">
+        <figure>
+          <svg viewBox="0 0 700 80" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="thermTitle thermDesc">
             <title id="thermTitle">Brake operating temperature scale</title>
             <desc id="thermDesc">A scale from cool intake air through to peak carbon-carbon disc temperature above 1200 degrees Celsius.</desc>
-            <rect x="10" y="28" width="680" height="14" rx="7" fill="url(#tgrad)"/>
-            <defs>
-              <linearGradient id="tgrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#3fd0ff"/>
-                <stop offset="35%" stop-color="#7fe8c8"/>
-                <stop offset="70%" stop-color="#ffb35a"/>
-                <stop offset="100%" stop-color="#ff5a36"/>
-              </linearGradient>
-            </defs>
-            <text x="10" y="66" fill="#9aa1ab" font-family="JetBrains Mono" font-size="11">ambient / duct air</text>
-            <text x="300" y="66" fill="#9aa1ab" font-family="JetBrains Mono" font-size="11">~400°C glaze threshold</text>
-            <text x="610" y="66" fill="#ff8a5a" font-family="JetBrains Mono" font-size="11">&gt;1,200°C peak</text>
+            <rect x="10" y="25" width="680" height="12" fill="#ddd" stroke="#999"/>
+            <rect x="10" y="25" width="230" height="12" fill="#a9c6e8"/>
+            <rect x="240" y="25" width="230" height="12" fill="#e8c98a"/>
+            <rect x="470" y="25" width="220" height="12" fill="#d98a7a"/>
+            <text x="10" y="58" fill="#333" font-size="11">ambient / duct air</text>
+            <text x="300" y="58" fill="#333" font-size="11">~400°C glaze threshold</text>
+            <text x="610" y="58" fill="#333" font-size="11">&gt;1,200°C peak</text>
           </svg>
           <figcaption>Fig. 3 — Approximate operating range of a motorsport carbon-carbon brake, from cooling-duct intake air to peak disc temperature (Sabe Fluid Dynamics, n.d.; TotalSim, 2017).</figcaption>
         </figure>
       </section>
 
-      <hr class="thermal-rule section-divider">
+      <hr>
 
-      <section id="Comparison" class="section">
-        <p class="kicker">07 — Comparison Across Racing Types</p>
-        <h2 class="h">Comparison Across Racing Types</h2>
-        <p>Braking differs across categories with the race, surface, endurance needs and weight. F1 achieves the highest deceleration through low weight, downforce, carbon-carbon brakes and BBW. GT cars, being heavier, prioritise robustness over long stints. Rally cars must adapt fast as grip changes suddenly, especially in the wet. Formula E pairs a fully electric powertrain with BBW.</p>
+      <section id="Comparison">
+        <h2>Comparison Across Racing Types</h2>
+        <p>Braking varies depending on the categories of race, surface, endurance requirements and weight. F1 has the lowest weight, highest downforce, carbon-carbon brakes and BBW for the highest deceleration. GT cars are designed to be heavy and focus on durability rather than long duration. Rally cars have to adapt rapidly when conditions are changing quickly, particularly when wet. Formula E combines a fully electric powertrain with BBW.</p>
 
-        <div class="table-wrap">
-          <table class="compare">
-            <caption>Table 1 — Braking priorities by racing category</caption>
-            <thead>
-              <tr>
-                <th scope="col">Category</th>
-                <th scope="col">Priority</th>
-                <th scope="col">Materials</th>
-                <th scope="col">Electronics</th>
-                <th scope="col">Trait</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">Formula 1</th>
-                <td>Deceleration &amp; feel</td>
-                <td>Carbon-carbon</td>
-                <td>No ABS; BBW + MGU-K</td>
-                <td>Low weight, downforce</td>
-              </tr>
-              <tr>
-                <th scope="row">GT3 / GT4</th>
-                <td>Endurance robustness</td>
-                <td>Steel / carbon-ceramic</td>
-                <td>Bosch ABS M5, 12 maps</td>
-                <td>Heavier, long stints</td>
-              </tr>
-              <tr>
-                <th scope="row">Rally</th>
-                <td>Surface adaptability</td>
-                <td>Steel, debris-resistant</td>
-                <td>Driver-controlled</td>
-                <td>Rapid grip changes</td>
-              </tr>
-              <tr>
-                <th scope="row">Formula E</th>
-                <td>Energy recovery</td>
-                <td>Lightweight composite</td>
-                <td>Full BBW, front &amp; rear</td>
-                <td>Fully electric</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <table>
+          <caption>Table 1 — Braking priorities by racing category</caption>
+          <thead>
+            <tr>
+              <th scope="col">Category</th>
+              <th scope="col">Priority</th>
+              <th scope="col">Materials</th>
+              <th scope="col">Electronics</th>
+              <th scope="col">Trait</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Formula 1</th>
+              <td>Deceleration &amp; feel</td>
+              <td>Carbon-carbon</td>
+              <td>No ABS; BBW + MGU-K</td>
+              <td>Low weight, downforce</td>
+            </tr>
+            <tr>
+              <th scope="row">GT3 / GT4</th>
+              <td>Endurance robustness</td>
+              <td>Steel / carbon-ceramic</td>
+              <td>Bosch ABS M5, 12 maps</td>
+              <td>Heavier, long stints</td>
+            </tr>
+            <tr>
+              <th scope="row">Rally</th>
+              <td>Surface adaptability</td>
+              <td>Steel, debris-resistant</td>
+              <td>Driver-controlled</td>
+              <td>Rapid grip changes</td>
+            </tr>
+            <tr>
+              <th scope="row">Formula E</th>
+              <td>Energy recovery</td>
+              <td>Lightweight composite</td>
+              <td>Full BBW, front &amp; rear</td>
+              <td>Fully electric</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
-      <hr class="thermal-rule section-divider">
+      <hr>
 
-      <section id="Transition" class="section">
-        <p class="kicker">08 — Transition to Road Cars</p>
-        <h2 class="h">Transition to Road Cars</h2>
-        <p>Motorsport developments increasingly carry over into high-performance road cars. Lightweight, heat-resistant carbon composites developed for racing, such as resin-infiltrated manufacturing, are now in commercial production (SGL Carbon, n.d.). ABS and electronic braking are further examples of motorsport technology transferred to the road, where comfort, safety and reliability sit alongside performance. With hybrid and electric powertrains, BBW is increasingly important, letting braking, energy recovery and vehicle control work together. Motorsport therefore acts as a proving ground for technologies later transferred to road vehicles with acceptable safety, reliability and integration.</p>
+      <section id="Transition">
+        <h2>Transition to Road Cars</h2>
+        <p>High-performance road cars are increasingly influenced by motorsport technology. The lightweight, heat-resistant carbon composites used in racing are commercially produced, for instance by resin-infiltrated manufacturing (SGL Carbon, n.d.). Other examples of motorsport technology transferring to the road are ABS and electronic braking, which are more concerned with comfort, safety and reliability than performance. In hybrid and EV vehicles, BBW is increasingly critical, as it enables braking, energy recovery and vehicle control to work together. Technologies are tested and evaluated in motorsport before being applied to road vehicles with the necessary safety, reliability and integration.</p>
       </section>
 
-      <hr class="thermal-rule section-divider">
+      <hr>
 
-      <section id="Conclusion" class="section">
-        <p class="kicker">09 — Conclusion</p>
-        <h2 class="h">Conclusion</h2>
-        <p>High-performance braking in motorsport is the product of decades of progress across physics, materials, electronics and thermal management, each pushing the others forward as regulations and race conditions change. Formula 1 shows what is possible at the limit of performance; GT and rally adapt the same principles to endurance and unpredictable surfaces; and Formula E shows how braking integrates with a fully electric powertrain. Motorsport remains the proving ground from which these strategies filter down into safer, more capable road cars and supercars.</p>
+      <section id="Conclusion">
+        <h2>Conclusion</h2>
+        <p>Decades of advances in physics, materials, electronics and thermal management have come together to produce high-performance braking in motorsport, each advancing the other as regulations and race conditions change. Formula 1 shows what it takes to reach the edge of performance; GT and rally show endurance and constantly changing surfaces; and Formula E shows braking as part of a fully electric powertrain. Motorsport remains the breeding ground for ideas that trickle down to safer, more capable road cars and supercars.</p>
       </section>
 
     </article>
 
-    <hr class="thermal-rule section-divider">
+    <hr>
 
-    <section class="section video-wrap">
-      <p class="kicker">Conference Presentation</p>
-      <h2 class="h">Conference Presentation</h2>
+    <section>
+      <h2>Conference Presentation</h2>
       <video src="freecompress-Presentation.pptx - Comet 2025-12-05 14-33-11 (1).mp4" width="800" height="450" controls></video>
     </section>
 
-    <hr class="thermal-rule section-divider">
+    <hr>
 
-    <section id="References" class="section references">
-      <p class="kicker">10 — References</p>
-      <h2 class="h">References</h2>
+    <section id="References">
+      <h2>References</h2>
       <ol class="refs">
         <li>Bosch Motorsport (n.d.) <em>ABS M5 Kit</em>. Available at: <a href="https://www.bosch-motorsport.com/technology-and-innovation/product-highlights/abs-m5-kit/" target="_blank" rel="noopener">bosch-motorsport.com/technology-and-innovation/product-highlights/abs-m5-kit</a> (Accessed: 10 August 2026).</li>
         <li>Brembo (n.d.) <em>Carbon for discs and brake pads in the top competitions</em>. Available at: <a href="https://www.brembo.com/en/news-archive/carbon-discs-and-brake-pads-in-the-top-competitions" target="_blank" rel="noopener">brembo.com/en/news-archive/carbon-discs-and-brake-pads-in-the-top-competitions</a> (Accessed: 10 August 2026).</li>
@@ -459,25 +315,25 @@
         <li>SGL Carbon (n.d.) <em>Brake Technology</em>. Available at: <a href="https://www.sglcarbon.com/en/markets-solutions/applications/brake-technology/" target="_blank" rel="noopener">sglcarbon.com/en/markets-solutions/applications/brake-technology</a> (Accessed: 10 August 2026).</li>
         <li>TotalSim (2017) <em>Brake Cooling</em>. Available at: <a href="https://www.totalsimulation.co.uk/brake-cooling-in-f1-race-technology-magazine/" target="_blank" rel="noopener">totalsimulation.co.uk/brake-cooling-in-f1-race-technology-magazine</a> (Accessed: 10 August 2026).</li>
       </ol>
-      <p style="font-size:.8rem;color:var(--muted);margin-top:1rem;">References are excluded from the word count below.</p>
+      <p style="font-size:.82rem;color:#666;">References are excluded from the word count below.</p>
     </section>
 
-    <hr class="thermal-rule section-divider">
+    <hr>
 
-    <section class="section" aria-label="Submission information">
-      <p class="kicker">Submission Information</p>
+    <section aria-label="Submission information">
+      <h2>Submission Information</h2>
       <div class="meta-panel">
-        <div class="row"><span>Word count (Abstract&ndash;Conclusion)</span> <span id="totalWordCount" class="mono">counting&hellip;</span></div>
-        <div class="row"><span>Page generated</span> <span id="timestamp" class="mono"></span></div>
-        <div class="row"><span>Repository last modified</span> <span id="last-updated" class="mono">Loading last update time&hellip;</span></div>
-        <button class="verify-btn" onclick="verifyLastUpdatedTime()">Verify last modified time</button>
+        <p><span class="label">Word count (Abstract&ndash;Conclusion):</span> <span id="totalWordCount">counting&hellip;</span></p>
+        <p><span class="label">Page generated:</span> <span id="timestamp"></span></p>
+        <p><span class="label">Repository last modified:</span> <span id="last-updated">Loading last update time&hellip;</span></p>
+        <button onclick="verifyLastUpdatedTime()">Verify last modified time</button>
       </div>
     </section>
   </main>
 </div>
 
-<footer class="site-footer">
-  ENG0018 Computer Laboratory 2025/26 &middot; Student URN 6953692 &middot; Built for GitHub Pages
+<footer>
+  ENG0018 Computer Laboratory 2025/26 &middot; Student URN 6953692
 </footer>
 
 <script>
@@ -511,7 +367,6 @@
 
   window.addEventListener('load', getLastUpdatedTime);
 
-  // Word count (Abstract through Conclusion; figures, tables and References excluded)
   function displayTotalWordCount() {
     const body = document.getElementById('report-body');
     const clone = body.cloneNode(true);
